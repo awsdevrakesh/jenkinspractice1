@@ -1,10 +1,10 @@
-agent Any{
-    environment {
-        
-    }
+pipeline {
+    agent { docker { image 'maven:3.8.4-openjdk-11-slim' } }
     stages {
-        stage('Build'){
+        stage('build') {
             steps {
+                sh 'mvn --version'
+				echo 'Hi Snehasri'
                 echo "Build"
                 echo "PATH - $PATH"
                 echo "BUILDNUMBER - $env.BUILD_NUMBER"
